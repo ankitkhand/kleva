@@ -1,0 +1,54 @@
+<div class="home_banner">
+    <div class="page-width">
+        {% for block in section.blocks %}
+            <div class="banner">
+                {% if block.settings.desktop_image != blank %}
+                    <img src="{{ block.settings.desktop_image | img_url: 'master' }}" alt="{{ block.settings.desktop_image.alt | escape }}" class="desktop">
+                    <img src="{{ block.settings.mobile_image | img_url: 'master' }}" alt="{{ block.settings.mobile_image.alt | escape }}" style="display: none;" class="mobile">
+                {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Slideshow Banner",
+    "max_blocks": 8,
+    "blocks": [
+        {
+            "type": "image",
+            "name": "Banner",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "desktop_image",
+                    "label": "Desktop Image"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "mobile_image",
+                    "label": "Mobile Image"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Slideshow Banner",
+            "blocks": [
+                {
+                    "type": "image"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

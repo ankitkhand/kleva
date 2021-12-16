@@ -1,0 +1,27 @@
+.home_banner .banner{
+    background-color: #eee;
+    overflow: hidden;
+}
+
+.home_banner .banner svg{
+    max-width: 80rem;
+    max-height: 50rem;
+    margin: auto;
+}
+
+
+
+
+@media (max-width: 730px){
+    .home_banner .banner img.desktop{
+        display: none;
+    }
+
+    .home_banner .page-width{
+        padding: 0;
+    }
+
+    .home_banner .banner img.mobile{
+        display: block!important;
+    }
+}

@@ -1,0 +1,68 @@
+<div class="top_announcement">
+  <div class="page-width">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'announcement' -%}
+          <div class="announcement-bar" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
+            {% if block.settings.shippinginfo != blank %}
+              <p class="announcement-bar__message h5 shippinginfo ta_left">
+                {{ block.settings.shippinginfo }}
+              </p>
+            {% endif %}
+            {%- if block.settings.paysection != blank -%}
+              <div class="announcement-bar__message h5 payment">
+                {{ block.settings.paysection }}
+              </div>
+            {%- endif -%}
+
+            {% if block.settings.rewards != blank %}
+              <div class="announcement-bar__message h5 klevareward">
+                {{ block.settings.rewards }}
+              </div>
+            {% endif %}
+          </div>
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "t:sections.announcement-bar.name",
+  "max_blocks": 12,
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.announcement-bar.blocks.announcement.name",
+      "settings": [
+        {
+         "type": "html",
+         "id": "shippinginfo",
+         "label": "Shipping Info",
+         "default": "Free Shipping on all orders over $150"
+        },
+        {
+          "type": "html",
+          "id": "paysection",
+          "default": "Welcome to our store",
+          "label": "Payment Section"
+        },
+        {
+          "type": "html",
+          "id": "rewards",
+          "label": "Klevarange Rewards",
+          "default": "Kleva Rewards"
+         }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      {
+        "type": "announcement"
+      }
+    ]
+  }
+}
+{% endschema %}
