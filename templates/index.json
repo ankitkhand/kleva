@@ -26,6 +26,9 @@
         "button"
       ]
     },
+    "slideshow_banner": {
+      "type": "cust_home_slideshow"
+    },
     "rich_text": {
       "type": "rich-text",
       "blocks": {
@@ -96,6 +99,7 @@
     }
   },
   "order": [
+    "slideshow_banner",
     "image_banner",
     "rich_text",
     "featured_products",

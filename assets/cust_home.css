@@ -1,5 +1,5 @@
 .home_banner .banner{
-    background-color: #eee;
+    background-color: transparent;
     overflow: hidden;
 }
 
@@ -9,8 +9,47 @@
     margin: auto;
 }
 
+.home_banner .swiper {
+    width: 100%;
+    height: 100%;
+}
 
+.home_banner .swiper .arrow{
+      display: block!important;
+}
 
+.home_banner .swiper-button-next:after, .home_banner .swiper-rtl .swiper-button-prev:after,
+.home_banner .swiper-button-prev:after, .home_banner .swiper-rtl .swiper-button-next:after{
+    content: '';
+}
+
+.home_banner .swiper-pagination-bullet{
+    width: 10px;
+    bottom: 0;
+    background-color: #fff;
+    opacity: 0.3;
+}
+
+.home_banner .swiper-pagination-bullet-active{
+    background-color: #fff;
+    opacity: 0.8;
+}
+
+.index .collection .title-wrapper-with-link{
+    margin-top: 2.2em;
+}
+
+.index .collection h2.title{
+    text-align: center;
+    width: 100%;
+    font-size: clamp(1.6rem,3vw,2.79rem);
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+.index .spaced-section{
+    margin: 0;
+}
 
 @media (max-width: 730px){
     .home_banner .banner img.desktop{
