@@ -153,3 +153,43 @@ img{
 .card-wrapper .card-information{
     padding: 0 8px;
 }
+
+.card-wrapper .reviews{
+    font-size: 12px;
+}
+
+.card-wrapper .product_card_bottom{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.7em;
+}
+
+.card-wrapper .tv_deals_tags .badge{
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    padding: 4px 6px;
+    font-size: 11px;
+    border-radius: 4px;
+}
+
+.card-wrapper .tv_deals_tags .popular_badge{
+    background-image: linear-gradient(to right,#ac68d7,#a65ed4,#a053d1,#9a48ce,#943dcb,#8e35c6,#872cc2,#8123bd,#791cb5,#7115ad,#6a0da6,#62039e);
+}
+.card-wrapper .tv_deals_tags .new_arrival_badge{
+    background: #ff6801;
+}
+.card-wrapper .tv_deals_tags .free_shipping_badge{
+    background: linear-gradient(135deg,#6ad903 0,#00a516 100%);
+}
+.card-wrapper .tv_deals_tags .fast_shipping_badge{
+
+}
+.card-wrapper .tv_deals_tags .limited_stock_badge{
+    background: #e50009;
+}
+.card-wrapper .tv_deals_tags .tv_badge{
+    background: #ff6801;
+}

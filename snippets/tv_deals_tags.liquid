@@ -1,0 +1,27 @@
+<div class="tv_deals_tags">
+    {% if product.tags contains 'popular-badge' %}
+        <div class="popular_badge badge">
+            popular
+        </div>
+    {% elsif product.tags contains 'new-arrival-badge' %}
+        <div class="new_arrival_badge badge">
+            New Arrival
+        </div>
+    {% elsif product.tags contains 'free-shipping-badge' %}
+        <div class="free_shipping_badge badge">
+            Free Shipping
+        </div>
+    {% elsif product.tags contains 'fast-shipping-badge' %}
+        <div class="fast_shipping_badge badge">
+            Fast Shipping
+        </div>
+    {% elsif product.tags contains 'limited-stock-badge' %}
+        <div class="limited_stock_badge badge">
+            Limited Stock
+        </div>
+    {% elsif product.tags contains 'tv-badge' %}
+        <div class="tv_badge badge">
+            TV Deals
+        </div>
+    {% endif %}
+</div>

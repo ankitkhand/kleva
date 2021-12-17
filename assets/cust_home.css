@@ -51,6 +51,18 @@
     margin: 0;
 }
 
+.index .collection a.discover_more{
+    margin-top: 2em;
+    background-color: #ff6801;
+    border: none;
+    box-shadow: none;
+    font-size: clamp(.8rem,2vw,1.8rem);
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 0.8em 2em;
+    border-radius: 4px;
+}
+
 @media (max-width: 730px){
     .home_banner .banner img.desktop{
         display: none;
