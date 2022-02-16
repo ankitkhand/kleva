@@ -1,0 +1,25 @@
+<div class="breadcrumb" style="background: {{ section.settings.background }}">
+    <div class="page-width">
+        <a href="/">{{ 'collection.breadcrumbs.home' | t }}</a> / <a class="collection_breadcrumb_title"
+        href="{{ collection.url }}">{{ collection.title }}</a>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "breadcrumb",
+    "settings":[
+        {
+            "type": "color",
+            "id": "background",
+            "label": "Background",
+            "default": "#eee"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Breadcrumb"
+        }
+    ]
+}
+{% endschema %}

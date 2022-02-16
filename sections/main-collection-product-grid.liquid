@@ -33,25 +33,60 @@
       <div class="collection page-width">
         <div class="loading-overlay gradient"></div>
 
-        <ul id="product-grid" data-id="{{ section.id }}" class="
-          grid grid--2-col negative-margin product-grid
-          {% if collection.products_count < 4 %} grid--{{ collection.products_count }}-col-tablet{% else %}
-            {% if collection.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max{% endif %}
-          {% endif %}">
-          {%- for product in collection.products -%}
-            <li class="grid__item">
-              {% render 'product-card',
-                product_card_product: product,
-                media_size: section.settings.image_ratio,
-                show_secondary_image: section.settings.show_secondary_image,
-                add_image_padding: section.settings.add_image_padding,
-                show_vendor: section.settings.show_vendor,
-                show_image_outline: section.settings.show_image_outline,
-                show_rating: section.settings.show_rating
-              %}
-            </li>
-          {%- endfor -%}
-        </ul>
+        <div class="collection_grid">
+          <div class="sidebar_collection">
+            <div class="all_collection">
+              <h2>{{ section.settings.allcollections }}</h2>
+              <hr id="collection_side_bar_hr">
+  
+              <div class="collection_menu_url">
+                {% for block in section.blocks %}
+                  <a href="{{ block.settings.menuurl }}">{{ block.settings.menutitle }}</a>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="new_arrivals">
+              <h2>New Arrivals</h2>
+              <hr id="collection_side_bar_hr">
+
+              <div class="items">
+                {% for product in collections['new-arrivals'].products limit: 5 %}
+                  <div class="new_arrival_item">
+                    <img src="{{ product.featured_image | img_url: '70x', crop: 'center' }}" alt="{{ product.title }}" loading="lazy">
+                    <div class="info">
+                      <p>{{ product.title }}</p>
+                      <div class="price">
+                        {% include 'product-card-price' %}
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+
+          </div>
+  
+          <ul id="product-grid" data-id="{{ section.id }}" class="
+            grid grid--2-col negative-margin product-grid
+            {% if collection.products_count < 4 %} grid--{{ collection.products_count }}-col-tablet{% else %}
+              {% if collection.products_count == 4 %} grid--4-col-desktop{% else %} grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max{% endif %}
+            {% endif %}">
+            {%- for product in collection.products -%}
+              <li class="grid__item">
+                {% render 'product-card',
+                  product_card_product: product,
+                  media_size: section.settings.image_ratio,
+                  show_secondary_image: section.settings.show_secondary_image,
+                  add_image_padding: section.settings.add_image_padding,
+                  show_vendor: section.settings.show_vendor,
+                  show_image_outline: section.settings.show_image_outline,
+                  show_rating: section.settings.show_rating
+                %}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
 
         {%- if paginate.pages > 1 -%}
           {% render 'pagination', paginate: paginate, anchor: '' %}
@@ -65,6 +100,24 @@
 {
   "name": "t:sections.main-collection-product-grid.name",
   "class": "spaced-section collection-grid-section",
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Collection Menu",
+      "settings": [
+        {
+          "type": "html",
+          "id": "menutitle",
+          "label": "Menu Name"
+        },
+        {
+          "type": "url",
+          "id": "menuurl",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
   "settings": [
     {
       "type": "range",
@@ -74,6 +127,12 @@
       "step": 4,
       "default": 16,
       "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
+    },
+    {
+      "type": "text",
+      "id": "allcollections",
+      "label": "Title",
+      "default": "All Collections"
     },
     {
       "type": "header",

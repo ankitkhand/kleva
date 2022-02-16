@@ -1,0 +1,112 @@
+<div class="page-width">
+    <div class="trending_now">
+        <h2 class="title">{{ section.settings.title }}</h2>
+        
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                {% for product in collections[section.settings.collection].products limit:12 %}
+                    <div class="swiper-slide">
+                        {% include 'cust-product-card' %}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- If we need pagination -->
+            <!-- <div class="swiper-pagination"></div> -->
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev arrow">
+                <img src="https://cdn.shopify.com/s/files/1/1506/1208/files/new_banner_icon_left.svg?v=1630141026" alt="next" loading="lazy">
+            </div>
+            <div class="swiper-button-next arrow">
+                <img src="https://cdn.shopify.com/s/files/1/1506/1208/files/new_banner_Icon_right.svg?v=1630141026" alt="next" loading="lazy">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const swiperTrending = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        slidesPerView: {{ section.settings.range }},
+        spaceBetween: 10,
+        breakpoints:{
+            1400:{
+                slidesPerView: {{ section.settings.range }}
+            },
+            1100:{
+                slidesPerView: 4
+            },
+            600:{
+                slidesPerView: 2
+            },
+            300:{
+                slidesPerView: 2
+            }
+
+        },
+
+        {% if section.settings.autoplay %}
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: true
+            },
+        {% endif %}
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        }
+
+    });
+</script>
+
+
+{% schema %}
+{
+    "name": "Trending Now",
+    "tag": "section",
+    "settings":[
+        {
+            "type": "checkbox",
+            "default": true,
+            "label": "Auto Play",
+            "id": "autoplay"
+        },
+        {
+            "type": "range",
+            "id": "range",
+            "min": 4,
+            "max": 7,
+            "step": 1,
+            "label": "Slides Per View",
+            "default": 5
+        },
+        {
+            "type": "html",
+            "id": "title",
+            "label":"Title"
+        },
+        {
+            "type": "collection",
+            "id": "collection",
+            "label": "Choose Collection"
+        }
+    ],
+    "presets": [
+        {
+            "category": "Slidshow",
+            "name": "Trending Now"
+        }
+    ]
+}
+{% endschema %}
+

@@ -1,0 +1,53 @@
+<div class="bottom_guarantee" style="background: url({{ section.settings.background | img_url: 'master' }}); background-size: cover; background-position: center;">
+    <div class="page-width">
+        <div class="home_guarantee">
+            <a href="{{ section.settings.firsturl }}">
+                <img src="{{ section.settings.imgone | img_url: 'master' }}" alt="{{ section.settings.imgone.alt }}" loading="lazy">
+
+                <span>Lean More ></span>
+            </a>
+            <a href="{{ section.settings.secondurl }}">
+                <img src="{{ section.settings.imgtwo | img_url: 'master' }}" alt="{{ section.settings.imgtwo.alt }}" loading="lazy">
+                <span>Lean More ></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name":"Guarantee",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "imgone",
+            "label": "First Image"
+        },
+        {
+            "type": "url",
+            "id": "firsturl",
+            "label": "First URL"
+        },
+        {
+            "type": "image_picker",
+            "id": "imgtwo",
+            "label": "Second Image"
+        },
+        {
+            "type": "url",
+            "id": "secondurl",
+            "label": "Second URL"
+        },
+        {
+            "type":"image_picker",
+            "id": "background",
+            "label": "Background"
+        }
+    ],
+    "presets":[
+        {
+            "name": "Guarantee"
+        }
+    ]
+}
+{% endschema %}

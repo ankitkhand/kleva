@@ -1,5 +1,8 @@
 {
   "sections": {
+    "breadcrumb": {
+      "type": "breadcrumbs"
+    },
     "banner": {
       "type": "main-collection-banner"
     },
@@ -8,6 +11,7 @@
     }
   },
   "order": [
+    "breadcrumb",
     "banner",
     "product-grid"
   ]

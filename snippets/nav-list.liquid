@@ -1,0 +1,10 @@
+<div class="nav_list">
+    {% assign navList = linklists[handle] %}
+    <ul>
+        {% for link in navList.links %}
+            {% assign child_list_handle = link.title | handleize %}
+            {% assign link_title = link.title | downcase %}
+            <li><a href="{{ link.url }}"><span {% if link_title contains 'sale' %}class="red"{% endif %}>{{ link.title }}</span></a></li>
+        {% endfor %}
+    </ul>
+</div>

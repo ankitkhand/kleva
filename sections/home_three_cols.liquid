@@ -1,0 +1,106 @@
+<div class="page-width title">
+    {% if section.settings.title != blank %}
+    <h2 class="title">
+        {{ section.settings.title }} 
+        {% if section.settings.img != blank %}
+            <img src="{{ section.settings.img | img_url: 'master' }}" alt="{{ section.settings.img.alt | escape }}">
+        {% else %}
+            {{ 'product-4' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+    </h2>
+    {% endif %}
+    {% if section.settings.content %}
+        <p>{{ section.settings.content }}</p>
+    {% endif %}
+</div>
+
+<div class="page-width section_columns">
+    {% for block in section.blocks %}
+        <a class="contents relative" href="{{ block.settings.link }}">
+            {% if block.settings.img != blank %}
+                <img src="{{ block.settings.img | img_url: 'master' }}" alt="{{ block.settings.img.alt | escape }}" />
+            {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+            <div class="bottom" style="background-color: {{ block.settings.choosecolor }};">
+                <h4>{{ block.settings.title }}</h4>
+                <div class="shopnow">
+                    <h5 style="color: {{ block.settings.choosecolor }};">Shop Now ></h5>
+                </div>
+            </div>
+        </a>
+    {% endfor %}    
+</div>
+
+
+{% schema %}
+{
+    "name": "Three Columns",
+    "tag": "section",
+    "class": "three_cols",
+    "max_blocks": 6,
+    "settings": [
+        {
+            "type": "html",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "image_picker",
+            "id": "img",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "content",
+            "label": "Contents"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "image",
+            "name": "Column",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "img",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "Link"
+                },
+                {
+                    "type": "color",
+                    "id": "choosecolor",
+                    "label": "Background Color",
+                    "default": "#fff"
+                }   
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "category": "Columns",
+            "name": "Three Columns",
+            "blocks": [
+                {
+                    "type": "image"
+                },
+                {
+                    "type": "image"
+                },
+                {
+                    "type": "image"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

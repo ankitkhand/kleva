@@ -1,0 +1,52 @@
+
+    <div class="product_inner">
+        <a href="{{ product.url | within: collection }}?variant={{product.variants.first.id}}" class="pos_relative full-unstyled-link">
+            <div class="product_image pos_relative">
+                <div class="content" style="background-image: url({{ product.featured_image.src | img_url: '400x' }}); background-size: cover;" id="firstHoveImage">
+                    
+                </div>
+
+                <div class="content second" style="background-image: url({{ product.images[1] | img_url: '400x' }}); background-size: cover; opacity: 0;" id="secondHoverImage">
+                        
+                </div>
+
+                {% if product.tags contains 'morning-show' %}
+                    <div class="morning_show">
+                        <p><strong>Morning Show</strong> Limited Special</p>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <div class="title">
+                <p class="product_card_title">{{ product.title }}</p>
+            </div>
+
+            <div class="product_card_bottom_section reviews">
+                <p class="product_price">    
+                    <div class="review_price product_card_bottom">
+                        <div>                            
+                            review
+                        </div>
+                        {% if collection.title contains 'TV' or template.name == 'index' %}
+                            {% include 'tv_deals_tags' %}
+                        {% endif %}
+                    </div>                    
+                </p>
+            </div>
+
+            {% assign newSelectedVariant = '' %} 
+            {% if product.selected_variant.sku == nil %}
+                {% assign newSelectedVariant = product.variants.first %}
+            {% else %}
+                {% assign newSelectedVariant = product.selected_variant %}
+            {% endif %}
+
+            {% if newSelectedVariant.inventory_quantity <= 0 and newSelectedVariant.inventory_policy == 'deny' %}
+                {% unless newSelectedVariant.sku == 'NO_GIFT_SELECTED' %}
+                    <div class="tagmsg">
+                        <span class="outofstock">Out of Stock</span>
+                    </div>
+                {% endunless %}
+            {% endif %}
+        </a>
+    </div>

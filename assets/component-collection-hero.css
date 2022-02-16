@@ -25,7 +25,9 @@
 }
 
 .collection-hero__text-wrapper {
-  flex-basis: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1.5rem;
 }
 
 @media screen and (min-width: 750px) {
@@ -41,21 +43,10 @@
 }
 
 .collection-hero__title {
-  margin: 5rem 0 0;
-}
-
-.collection-hero__title + .collection-hero__description {
-  margin-top: 1.5rem;
-  font-size: 1.6rem;
-  line-height: calc(1 + 0.5 / var(--font-body-scale));
+  margin: 0rem 0 0;
 }
 
 @media screen and (min-width: 750px) {
-  .collection-hero__title + .collection-hero__description {
-    font-size: 1.8rem;
-    margin-top: 2rem;
-  }
-
   .collection-hero__description {
     max-width: 66.67%;
   }

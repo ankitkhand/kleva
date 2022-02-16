@@ -1,3 +1,7 @@
+.relative{
+    position: relative;
+}
+
 .home_banner .banner{
     background-color: transparent;
     overflow: hidden;
@@ -18,8 +22,8 @@
       display: block!important;
 }
 
-.home_banner .swiper-button-next:after, .home_banner .swiper-rtl .swiper-button-prev:after,
-.home_banner .swiper-button-prev:after, .home_banner .swiper-rtl .swiper-button-next:after{
+body .swiper-button-prev:after,
+body .swiper-button-next:after{
     content: '';
 }
 
@@ -39,7 +43,7 @@
     margin-top: 2.2em;
 }
 
-.index .collection h2.title{
+.index h2.title{
     text-align: center;
     width: 100%;
     font-size: clamp(1.6rem,3vw,2.79rem);
@@ -52,7 +56,7 @@
 }
 
 .index .collection a.discover_more{
-    margin-top: 2em;
+    margin-top: 2.5em;
     background-color: #ff6801;
     border: none;
     box-shadow: none;
@@ -61,6 +65,167 @@
     text-transform: uppercase;
     padding: 0.8em 2em;
     border-radius: 4px;
+}
+
+.index .three_cols .section_columns{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1em;
+}
+
+.index .three_cols .section_columns .bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0.6em 8px;
+}
+
+.index .three_cols .section_columns .bottom h4,
+.index .three_cols .section_columns .bottom h5{
+    margin: 0;
+    text-decoration: none;
+    color: #fff;
+}
+
+.index .three_cols .section_columns .bottom .shopnow{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 12px;
+    padding: 1px 6px;
+}
+
+.index .three_cols .section_columns .bottom h4{
+    line-height: 1;
+    font-size: clamp(1.8rem,2vw,3.25rem);
+    margin: 0;
+    font-weight: 600;
+}
+
+.index .three_cols .section_columns .bottom h5{
+    font-size: clamp(1rem, 2vw, 1.6rem);
+    margin: 0;
+    font-weight: 600;
+}
+
+.three_cols .title{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.three_cols .title h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.three_cols .title p{
+    margin-top: 0;
+}
+
+.three_cols .title svg{
+    width: 70px;
+}
+
+/* trending now */
+.trending_now .trendingnow_card{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    overflow: hidden;
+    gap: 10px;
+    padding: 4px 0 0;
+}
+
+.trending_now .swiper{
+    padding: 4px;
+}
+/* end of trending now */
+
+/* help guide */
+.index a.home_help_guide{
+    display: block;
+    margin: 2em 0 0;
+}
+/* end of help guide */
+
+.index .home_guarantee{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1em;
+    padding: 1.5em 0;
+}
+
+.index .home_guarantee a{
+    position: relative;
+    color: #520184;
+    border-radius: 14px;
+}
+
+.index .home_guarantee a span{
+    position: absolute;
+    bottom: 2em;
+    right: 1em;
+    background-color: #fff;
+    border-radius: 14px;
+    font-weight: 600;
+    padding-left: 10px;
+    padding-right: 10px;
+} 
+
+@media (max-width: 1150px){
+
+    .index .home_guarantee a span{
+        font-size: 12px;
+        bottom: 3.6em;
+    }
+}
+
+@media (max-width: 767px){
+    .index .three_cols .section_columns{
+        grid-template-columns: 1fr;
+    }
+
+    .index a.home_help_guide{
+        margin: 1em 0 0;
+    }
+
+    .index .home_help_guide img.desktopimg{
+        display: none;
+    }
+
+    .index .home_help_guide img.mobileimg{
+        display: block!important;
+    }
+
+    .index .home_guarantee{
+        grid-template-columns: 1fr;
+        margin: 2em 0 0;
+        padding: 0.5em 0;
+    }
+
+    .bottom_guarantee .page-width{
+        padding: 0;
+    }
+
+    .index .home_guarantee a span{
+        line-height: 1.3;
+        padding: 2px 4px;
+        right: 0.2em;
+    }
+}
+
+@media (max-width: 749px){
+    .index .product-grid .grid__item:last-child{
+        display: none;
+    }
+
+    .index .collection a.discover_more{
+        margin-top: 1em;
+    }
 }
 
 @media (max-width: 730px){

@@ -1,0 +1,34 @@
+<div class="page-width">
+    <a class="home_help_guide" href="{{ section.settings.url }}">
+        <img src="{{ section.settings.desktopimg | img_url: "master" }}" alt="{{ section.settings.desktopimg.alt }}" loading="lazy" class="desktopimg">
+        <img src="{{ section.settings.mobileimg | img_url: "master" }}" alt="{{ section.settings.mobile.alt }}" loading="lazy" class="mobileimg" style="display: none;">
+    </a>
+</div>
+
+{% schema %}
+{
+    "name": "Help Guide",
+    "settings":[
+        {
+            "type": "image_picker",
+            "id": "desktopimg",
+            "label": "Desktop Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "mobileimg",
+            "label": "Mobile Image"
+        },
+        {
+            "type": "url",
+            "id": "url",
+            "label": "Choose URL"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Help Guide"
+        }
+    ]
+}
+{% endschema %}
